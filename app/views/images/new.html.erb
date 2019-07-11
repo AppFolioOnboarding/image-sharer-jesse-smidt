@@ -1,0 +1,7 @@
+<h1>Images New!</h1>
+<p>Add a new image here</p>
+
+<%= form_for @image do |f| %>
+    <%= f.text_field :url, {type: 'url'} %>
+    <%= f.submit 'Create' %>
+<% end %>
