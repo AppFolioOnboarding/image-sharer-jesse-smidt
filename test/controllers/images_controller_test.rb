@@ -20,7 +20,5 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'a', URL_PATH
   end
 
-  private
-
   URL_PATH = 'https://cdn.royalcanin-weshare-online.io/GvqPH2YBIYfdNSoCoAgj/v1/bd18bl-bernese-mountain-dog-adult-standing'.freeze
 end
