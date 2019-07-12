@@ -10,17 +10,18 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
 
-html, body {
+
+html, body{
     height: 100%;
     font-family: 'Roboto', Sans-Serif;
     padding: 25px;
 }
 
-.splash {
+.splash{
     position: relative;
     background: linear-gradient(to bottom right, blue, lightblue);
     box-shadow: 0 4px 2px -2px gray;
@@ -30,17 +31,17 @@ html, body {
     color: white;
 }
 
-.splash h1 {
+.splash h1{
     margin-top: 40px;
     margin-bottom: 25px;
     font-size: 76px;
 }
 
-.splash p {
+.splash p{
     font-size: 24px;
 }
 
-.splash a {
+.splash a{
     height: 50px;
     padding: 7px;
     width: 300px;

@@ -5,6 +5,6 @@ class ApplicationControllerTest < ActionDispatch::IntegrationTest
     get '/'
 
     assert_response :success
-    assert_select 'h1', text: 'Some Content!'
+    assert_select 'h1', text: 'Image Sharer'
   end
 end

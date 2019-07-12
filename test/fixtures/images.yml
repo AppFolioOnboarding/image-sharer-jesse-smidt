@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: images
+#
+#  id           :integer          not null, primary key
+#  url          :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  lock_version :integer          not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  lock_version: 0
+
+two:
+  url: MyString,
+  lock_version: 0
