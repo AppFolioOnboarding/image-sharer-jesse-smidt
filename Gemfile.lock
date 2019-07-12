@@ -44,6 +44,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    annotate (2.7.3)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 13.0)
     arel (9.0.0)
     ast (2.4.0)
     bindex (0.7.0)
@@ -225,6 +228,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   byebug
   capybara
   jquery-rails

@@ -9,7 +9,7 @@ class ImagesController < ApplicationController
 
   def create
     image = Image.create(image_params)
-    redirect_to action: 'show', id: image.id
+    redirect_to image_path(image)
   end
 
   private
