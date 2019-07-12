@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class ImagesControllerTest < ActionDispatch::IntegrationTest
-  test 'should display new validated image form' do
+  test 'should display new image form' do
     get new_image_path
 
     assert_response :success
-    assert_select 'input#image_url[type="url"]'
+    assert_select 'input#image_url'
   end
 
   test 'should create new image and respond with redirect' do

@@ -2,10 +2,18 @@
 <h5>Add a new image url here</h5>
 <br/>
 <%= form_for @image do |f| %>
-      <div class="form-group">
-        <%= f.label :url, 'Image Url' %>
-        <%= f.text_field :url, {required: 'required', type: 'url', class: 'form-control col-md-4'} %>
-      </div>
+  <div class="form-group">
+      <%= f.label :url, 'Image Url' %>
+      <!--required: 'required', type: 'url', -->
+      <%= f.text_field :url, {class: 'form-control col-md-4'} %>
+  </div>
+  <% if @image.errors.any? %>
+    <ul class="text-danger">
+      <% @image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
     <%= f.submit 'Create', {class: 'btn btn-primary'} %>
 <% end %>

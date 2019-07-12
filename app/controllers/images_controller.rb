@@ -8,8 +8,14 @@ class ImagesController < ApplicationController
   end
 
   def create
-    image = Image.create(image_params)
-    redirect_to image_path(image)
+    @image = Image.new(image_params)
+
+    if @image.valid?
+      @image.save
+      redirect_to image_path(@image)
+    else
+      render :new
+    end
   end
 
   private
