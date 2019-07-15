@@ -1,0 +1,108 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+html, body {
+    height: 100%;
+    font-family: 'Roboto', Sans-Serif;
+}
+
+.splash {
+    position: relative;
+    background: linear-gradient(to bottom right, blue, lightblue);
+    box-shadow: 0 4px 2px -2px gray;
+    min-height: 50vh;
+    width: 100vw;
+    left: calc(-1 * (100vw - 100%) / 2);
+    padding: 50px;
+
+    color: white;
+}
+
+.splash h1 {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    font-size: 76px;
+}
+
+.splash p {
+    font-size: 24px;
+}
+
+.splash a {
+    height: 50px;
+    padding: 7px;
+    width: 300px;
+    text-align: center;
+    bottom: -25px;
+    left: calc(50% - 150px);
+    position: absolute;
+    background-color: blue;
+    border-radius: 25px;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 8px 4px -4px gray;
+}
+
+.splash a:hover {
+    color:unset;
+    text-decoration: none;
+}
+
+.home-content{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.home-content img{
+    align-self: center;
+    margin: 15px;
+    max-width: 400px;
+    width: auto;
+    box-shadow: 0 8px 4px -4px gray;
+}
+
+@media (max-width: 450px) {
+  .home-content img {
+    max-width: 250px;
+  }
+}
+
+a.active {
+  border-bottom: 2px solid blue;
+}
+
+.navbar-light{
+  background-color: white;
+}
+
+/*calc is 100% - navbar height + footer height*/
+.main{
+  overflow: auto;
+  height: calc(100% - 116px);
+}
+
+footer{
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  font-size: 24px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 60px;
+}
