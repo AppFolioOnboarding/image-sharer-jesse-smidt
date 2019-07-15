@@ -9,4 +9,8 @@
   </p>
   <%= link_to 'Get Started', new_image_path %>
 </div>
-
+<div class="home-content">
+  <% @images.each do |image| %>
+     <img src="<%= image.url %>"/>
+  <% end %>
+</div>

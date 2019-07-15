@@ -26,7 +26,7 @@ html, body {
     box-shadow: 0 4px 2px -2px gray;
     height:60%;
     padding: 50px;
-    margin: -50px;
+    margin: -50px -50px 0px -50px;
     color: white;
 }
 
@@ -58,4 +58,13 @@ html, body {
 .splash a:hover {
     color:unset;
     text-decoration: none;
+}
+
+.home-content{
+    margin-top: 50px;
+}
+
+.home-content img{
+    margin: 25px;
+    max-width: 400px;
 }
