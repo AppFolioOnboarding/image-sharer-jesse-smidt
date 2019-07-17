@@ -6,6 +6,13 @@ AllCops:
     - 'vendor/**/*'
     - 'node_modules/**/*'
     - 'bin/*'
+# Ignoring rubocop violations on 3rd-party generated files
+    - 'db/migrate/20190715213650_add_missing_unique_indices.acts_as_taggable_on_engine.rb'
+    - 'db/migrate/20190715213652_add_missing_taggable_index.acts_as_taggable_on_engine.rb'
+    - 'db/migrate/20190715213654_add_missing_indexes_on_taggings.acts_as_taggable_on_engine.rb'
+    - 'db/migrate/20190715213649_acts_as_taggable_on_migration.acts_as_taggable_on_engine.rb'
+    - 'db/migrate/20190715213653_change_collation_for_tag_names.acts_as_taggable_on_engine.rb'
+
   TargetRubyVersion: 2.5
 
 Layout/IndentFirstArrayElement:
