@@ -10,11 +10,13 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create new image and respond with redirect' do
     post images_path,
-         params: { image: { url: URL_PATH } }
+         params: { image: { url: URL_PATH, tag_list: 'nice, fun' } }
     assert_response :redirect
     follow_redirect!
     assert_response :success
+    puts response.body
     assert_select 'a', URL_PATH
+    assert_select 'span.badge'
     assert Image.exists? url: URL_PATH
   end
 

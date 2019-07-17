@@ -6,7 +6,7 @@
 #  url          :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  lock_version :integer          not null
+#  lock_version :integer          default(0), not null
 #
 
 require 'test_helper'
