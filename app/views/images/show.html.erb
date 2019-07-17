@@ -1,3 +1,10 @@
 <h1 class="mt-3">Image Created!</h1>
 <p>An image url has been saved. Access here:</p>
-<%= link_to nil, @image.url %>
+<div>
+  <label>Url:</label>
+  <%= link_to nil, @image.url %>
+</div>
+<div>
+  <label>Tags: </label>
+  <%= render partial: "partials/tag_list", locals: { tag_list: @image.tag_list } %>
+</div>

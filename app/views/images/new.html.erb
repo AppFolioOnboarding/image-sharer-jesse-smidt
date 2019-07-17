@@ -4,8 +4,12 @@
 <%= form_for @image do |f| %>
   <div class="form-group">
       <%= f.label :url, 'Image Url' %>
-      <!--required: 'required', type: 'url', -->
-      <%= f.text_field :url, {class: 'form-control col-md-4'} %>
+      <%= f.text_field :url, class: 'form-control col-md-4', placeholder:'https://appfolio.com' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tag_list, 'Image Tags' %>
+    <%= f.text_field :tag_list, value: @image.tag_list.join(","), class: 'form-control col-md-4', placeholder: 'Fun, Scenic' %>
+    <small>Enter tags separated by commas (",")</small>
   </div>
   <% if @image.errors.any? %>
     <ul class="text-danger">
@@ -14,6 +18,5 @@
       <% end %>
     </ul>
   <% end %>
-
-    <%= f.submit 'Create', {class: 'btn btn-primary'} %>
+  <%= f.submit 'Create', {class: 'btn btn-primary'} %>
 <% end %>

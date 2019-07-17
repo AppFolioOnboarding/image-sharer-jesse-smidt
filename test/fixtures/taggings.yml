@@ -1,0 +1,5 @@
+one:
+  taggable_type: Image
+  taggable_id: 1
+  tag_id: 1
+  context: tag
