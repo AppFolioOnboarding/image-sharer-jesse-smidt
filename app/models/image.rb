@@ -23,4 +23,7 @@ class Image < ApplicationRecord
               with: URI.regexp(%w[http https]),
               message: 'invalid format'
             }
+
+  acts_as_taggable
+  acts_as_taggable_on :tag
 end

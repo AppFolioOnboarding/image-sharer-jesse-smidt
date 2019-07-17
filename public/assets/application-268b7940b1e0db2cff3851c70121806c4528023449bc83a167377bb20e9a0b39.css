@@ -21,6 +21,10 @@ html, body {
     padding: 25px;
 }
 
+label{
+  font-weight: 600;
+}
+
 .splash {
     position: relative;
     background: linear-gradient(to bottom right, blue, lightblue);

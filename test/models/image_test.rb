@@ -54,4 +54,22 @@ class ImageTest < ActiveSupport::TestCase
     image = Image.new(url: 'http.www.appfolio.com')
     refute image.valid?
   end
+
+  test 'should save with tags' do
+    image = Image.create(url: 'http://appfolio.com', tag_list: 'tag')
+    assert_equal image.tag_list[0], 'tag'
+
+    image = Image.create(url: 'http://appfolio.com', tag_list: 'tag with spaces')
+    assert_equal image.tag_list[0], 'tag with spaces'
+
+    image = Image.create(url: 'http://appfolio.com', tag_list: 'tag,with,commas')
+    assert_equal image.tag_list[0], 'tag'
+    assert_equal image.tag_list[1], 'with'
+    assert_equal image.tag_list[2], 'commas'
+
+    image = Image.create(url: 'http://appfolio.com', tag_list: ' tag , with , commas and spaces ')
+    assert_equal image.tag_list[0], 'tag'
+    assert_equal image.tag_list[1], 'with'
+    assert_equal image.tag_list[2], 'commas and spaces'
+  end
 end
