@@ -1,0 +1,41 @@
+@import "custom_boostrap";
+
+.splash {
+  position: relative;
+  background: linear-gradient(to bottom right, $primary, $light);
+  min-height: 50vh;
+  padding: 70px 50px 50px 50px;
+  color: $light;
+}
+
+.splash h1 {
+  margin-bottom: 25px;
+  font-size: 76px;
+}
+
+.splash p {
+  font-size: 24px;
+}
+
+.splash__link {
+  height: 50px;
+  padding: 7px;
+  width: 300px;
+  text-align: center;
+  bottom: -25px;
+  left: calc(50% - 150px);
+  position: absolute;
+  background-color: $primary;
+  border-radius: 25px;
+  color: $light;
+  font-size: 24px;
+}
+
+.splash__link:hover {
+  color:unset;
+  text-decoration: none;
+}
+
+.home__image{
+  max-width: 400px;
+}

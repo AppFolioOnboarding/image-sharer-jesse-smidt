@@ -1,5 +1,5 @@
 
-<div class="splash">
+<div class="splash shadow container-fluid__break">
   <h1>Image Sharer</h1>
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -7,10 +7,12 @@
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-  <%= link_to 'Get Started', new_image_path %>
+  <%= link_to 'Get Started', new_image_path, class: 'splash__link shadow-lg' %>
 </div>
-<div class="home-content">
+<div class="d-flex flex-wrap justify-content-around pt-5">
   <% @images.each do |image| %>
-     <img src="<%= image.url %>"/>
+    <div class="align-self-center m-4 shadow">
+      <img class="home__image" src="<%= image.url %>" alt="Image">
+    </div>
   <% end %>
 </div>
