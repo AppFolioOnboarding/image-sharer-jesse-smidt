@@ -6,9 +6,5 @@
 </div>
 <div>
   <label>Tags: </label>
-  <% @image.tag_list.each do |tag| %>
-    <span class="badge badge-pill badge-secondary">
-      <%= tag %>
-    </span>
-  <% end %>
+  <%= render partial: "partials/tag_list", locals: { tag_list: @image.tag_list } %>
 </div>
