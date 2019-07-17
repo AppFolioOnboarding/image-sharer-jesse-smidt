@@ -1,0 +1,20 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+$font-family-base: 'Roboto', "Helvetica Neue", Arial, sans-serif;
+$primary: $indigo;
+$theme-colors:(
+  "primary": $indigo
+);
+
+.active.active--underline {
+  @extend .active;
+  border-bottom: 2px solid $primary;
+}
+
+.container-fluid .container-fluid__break {
+  margin: 0px -15px;
+}
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
