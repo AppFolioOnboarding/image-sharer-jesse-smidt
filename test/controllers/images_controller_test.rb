@@ -14,9 +14,9 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     follow_redirect!
     assert_response :success
-    puts response.body
     assert_select 'a', URL_PATH
-    assert_select 'span.badge'
+    assert_select 'span.badge:nth-of-type(1)', text: 'nice'
+    assert_select 'span.badge:nth-of-type(2)', text: 'fun'
     assert Image.exists? url: URL_PATH
   end
 
