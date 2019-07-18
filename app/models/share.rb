@@ -6,8 +6,6 @@ class Share
 
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'invalid format' }
 
-
-
   def initialize(email: nil, message: nil)
     @email = email
     @message = message
