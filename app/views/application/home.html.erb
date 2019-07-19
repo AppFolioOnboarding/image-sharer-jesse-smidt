@@ -17,11 +17,13 @@
 <div class="d-flex flex-wrap justify-content-around pt-2">
   <% @images.each do |image| %>
     <div class="align-self-center m-4 shadow card">
-      <img class="display-image" src="<%= image.url %>" alt="Image">
-      <%= link_to new_image_share_path(image),
-                  class: 'card-link text-light card-img-overlay card-img-overlay--shared d-flex align-items-center justify-content-center' do %>
-        <span>Share</span>
-      <% end %>
+      <div class="card-img-overlay--shared-container">
+        <img class="display-image" src="<%= image.url %>" alt="Image">
+        <%= link_to new_image_share_path(image),
+                    class: 'card-link text-light card-img-overlay card-img-overlay--shared d-flex align-items-center justify-content-center' do %>
+          <span>Share</span>
+        <% end %>
+      </div>
       <% if image.tag_list.any? %>
         <div class="card-body">
           <%= render partial: "_partials/tag_list", locals: { tag_list: image.tag_list } %>
@@ -30,3 +32,9 @@
     </div>
   <% end %>
 </div>
+<% if @images.empty? %>
+  <h3>No Images found for this tag</h3>
+  <p>
+    Click <%= link_to 'here', root_url %> to go home
+  </p>
+<% end %>
