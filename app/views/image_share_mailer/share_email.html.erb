@@ -1,0 +1,10 @@
+<h1>You've been invited to Image Sharer!</h1>
+<h3>Someone has shared an image with you!</h3>
+<img src="<%= @image.url %>"/>
+<hr/>
+<% if @share_form.message.present? %>
+  <p>They also included this message:</p>
+  <q><%= @share_form.message %></q>
+<hr>
+<% end %>
+<a href="<%= @linkback_url %>">Check out Image Sharer</a>

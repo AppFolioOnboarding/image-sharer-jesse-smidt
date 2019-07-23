@@ -13,6 +13,12 @@
     "RAILS_ENV": {
       "required": false
     },
+    "SENDGRID_PASSWORD": {
+      "required": true
+    },
+    "SENDGRID_USERNAME": {
+      "required": true
+    },
     "RAILS_SERVE_STATIC_FILES": {
       "required": false
     },

@@ -1,0 +1,18 @@
+<h1 class="mt-3">Share an Image</h1>
+<p>Send an image to a friend or co-worker!</p>
+<p>You'll be sharing this image:</p>
+<img class="display-image" src="<%= @image.url %>" alt="Image">
+<br/>
+<%= form_for [@image, @share_form], url: image_shares_path do |f| %>
+  <div class="form-group">
+    <%= f.label 'email', 'Email' %>
+    <%= f.text_field 'email', {class: 'form-control col-md-4'} %>
+  </div>
+  <%= render partial: '_partials/validation_list', locals: { errors: @share_form.errors } %>
+  <div class="form-group">
+    <%= f.label 'message', 'Message' %>
+    <%= f.text_area 'message', {class: 'form-control col-md-4'} %>
+  </div>
+  <%= f.submit 'Share', {class: 'btn btn-primary'} %>
+<% end %>
+

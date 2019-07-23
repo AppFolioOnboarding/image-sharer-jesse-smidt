@@ -6,6 +6,7 @@
   min-height: 50vh;
   padding: 70px 50px 50px 50px;
   color: $light;
+  margin-bottom: 50px;
 }
 
 .splash h1 {
@@ -36,6 +37,15 @@
   text-decoration: none;
 }
 
-.home__image{
-  max-width: 400px;
+.card-img-overlay--shared {
+  @extend .card-img-overlay;
+  opacity:0;
+  text-align: center;
+  background: $secondary;
+  font-size: 36px;
+}
+
+.card:hover .card-img-overlay--shared {
+  opacity: .5;
+
 }
