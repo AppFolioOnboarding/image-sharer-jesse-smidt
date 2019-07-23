@@ -10,7 +10,7 @@ class SharesController < ApplicationController
       ImageShareMailer.share_email(
         share_form: @share_form, image: @image, linkback_url: request.base_url
       ).deliver!
-      redirect_to root_path, success: "You have sent an image to #{@share_form.email}"
+      redirect_to root_path, notice: "You have sent an image to #{@share_form.email}"
     else
       render :new
     end

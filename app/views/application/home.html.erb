@@ -9,9 +9,9 @@
   </p>
   <%= link_to 'Get Started', new_image_path, class: 'splash__link shadow-lg' %>
 </div>
-<% if flash[:success] %>
+<% if flash[:notice] %>
   <div class="alert alert-success" role="alert">
-    <%= flash[:success] %>
+    <%= flash[:notice] %>
   </div>
 <% end %>
 <div class="d-flex flex-wrap justify-content-around pt-2">
