@@ -1,16 +1,16 @@
 class SharesController < ApplicationController
   before_action :set_image
   def new
-    @share = Share.new
-
-    puts params[:image_id]
+    @share_form = ShareForm.new
   end
 
   def create
-    @share = Share.new(email: share_params[:email], message: share_params[:message])
-    if @share.valid?
-      ImageShareMailer.share_email(share: @share, image: @image, linkback_url: request.base_url).deliver!
-      redirect_to root_path, success: "You have sent an image to #{@share.email}"
+    @share_form = ShareForm.new(share_params)
+    if @share_form.valid?
+      ImageShareMailer.share_email(
+        share_form: @share_form, image: @image, linkback_url: request.base_url
+      ).deliver!
+      redirect_to root_path, success: "You have sent an image to #{@share_form.email}"
     else
       render :new
     end
@@ -19,7 +19,7 @@ class SharesController < ApplicationController
   private
 
   def share_params
-    params.require(:share).permit(:email, :message)
+    params.require(:share_form).permit(:email, :message)
   end
 
   def set_image

@@ -1,13 +1,13 @@
 You've been invited to Image Sharer!
 
-<%= @share.email %> has shared an image with you!
+<%= @share_form.email %> has shared an image with you!
 
 It can be found by following this link:
 <%= @image.url %>
 
-<% if @share.message.present? %>
+<% if @share_form.message.present? %>
 They also included this message:
-<%= @share.message %>
+<%= @share_form.message %>
 <% end %>
 
 Navigate to this link in your browser to find out more:

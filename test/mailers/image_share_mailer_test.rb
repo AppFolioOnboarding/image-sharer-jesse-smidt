@@ -2,9 +2,9 @@ require 'test_helper'
 
 class ImageShareMailerTest < ActionMailer::TestCase
   setup do
-    share = Share.new email: 'send-to@appfolio.com', message: 'message'
+    share_form = ShareForm.new email: 'send-to@appfolio.com', message: 'message'
     image = Image.new url: 'https://learn.appfolio.com/apm/www/images/apm-logo-v2.png'
-    @email = ImageShareMailer.share_email share: share, image: image, linkback_url: 'https://appfolio.com'
+    @email = ImageShareMailer.share_email share_form: share_form, image: image, linkback_url: 'https://appfolio.com'
 
     assert_emails 1 do
       @email.deliver_now
