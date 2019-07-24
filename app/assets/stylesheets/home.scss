@@ -37,6 +37,10 @@
   text-decoration: none;
 }
 
+.card-img-overlay--shared-container{
+  position: relative;
+}
+
 .card-img-overlay--shared {
   @extend .card-img-overlay;
   opacity:0;
