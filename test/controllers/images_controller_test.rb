@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class ImagesControllerTest < ActionDispatch::IntegrationTest
@@ -15,10 +17,10 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
     assert_select 'a', URL_PATH
-    assert_select 'a.badge:nth-of-type(1)', text: 'nice'
-    assert_select 'a.badge:nth-of-type(2)', text: 'fun'
+    assert_select 'a.badge:nth-of-type(1)[href=?]', root_url + '?tag=nice', text: 'nice'
+    assert_select 'a.badge:nth-of-type(2)[href=?]', root_url + '?tag=fun', text: 'fun'
     assert Image.exists? url: URL_PATH
   end
 
-  URL_PATH = 'https://cdn.royalcanin-weshare-online.io/GvqPH2YBIYfdNSoCoAgj/v1/bd18bl-bernese-mountain-dog-adult-standing'.freeze
+  URL_PATH = 'https://cdn.royalcanin-weshare-online.io/GvqPH2YBIYfdNSoCoAgj/v1/bd18bl-bernese-mountain-dog-adult-standing'
 end
