@@ -1,4 +1,9 @@
 class ImagesController < ApplicationController
+  def index
+    @images = Image.order(created_at: :desc)
+    @images = @images.tagged_with(params[:tag]) if params[:tag]
+  end
+
   def show
     @image = Image.find(params[:id])
   end
