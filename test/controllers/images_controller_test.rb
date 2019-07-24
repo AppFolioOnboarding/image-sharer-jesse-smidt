@@ -9,7 +9,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'h1', text: 'Image Sharer'
     assert_select '.card img[src]'
-    assert_select '.card .badge[href=?]', root_url + '?tag=fun', text: 'fun'
+    assert_select '.card .badge[href=?]', root_url(tag: 'fun'), text: 'fun'
   end
 
   test 'should show empty if no images' do
@@ -35,8 +35,8 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
     assert_select 'a', URL_PATH
-    assert_select 'a.badge:nth-of-type(1)[href=?]', root_url + '?tag=nice', text: 'nice'
-    assert_select 'a.badge:nth-of-type(2)[href=?]', root_url + '?tag=fun', text: 'fun'
+    assert_select 'a.badge:nth-of-type(1)[href=?]', root_url(tag: 'nice'), text: 'nice'
+    assert_select 'a.badge:nth-of-type(2)[href=?]', root_url(tag: 'fun'), text: 'fun'
     assert Image.exists? url: URL_PATH
   end
 
