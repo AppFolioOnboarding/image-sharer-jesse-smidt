@@ -24,15 +24,19 @@
                       class: 'card-link text-light flex-fill d-flex align-items-center justify-content-center' do %>
             <span>Share</span>
           <% end %>
-          <%= form_for image, method: 'delete' do %>
+          <%= form_for image, method: 'delete', html: { class: 'image-delete-form' } do %>
             <button type="submit"
-                    class="fas fa-times-circle text-light card-delete-button"></button>
+                    class="fas fa-times text-light card-button card-button--delete"
+                    data-toggle="tooltip" data-title="Delete Image"></button>
           <% end %>
+          <%= link_to '', edit_image_path(image),
+                      class: 'fas fa-edit text-light card-button card-button--edit',
+                      data: { toggle: 'tooltip', title: 'Edit Image' } %>
         </div>
       </div>
       <% if image.tag_list.any? %>
         <div class="card-body">
-          <%= render partial: "_partials/tag_list", locals: { tag_list: image.tag_list } %>
+          <%= render partial: "tag_list", locals: { tag_list: image.tag_list } %>
         </div>
       <% end %>
     </div>

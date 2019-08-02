@@ -11,7 +11,7 @@ module PageObjects
       def delete!
         node.hover
         Capybara.current_session.accept_confirm do
-          node.find('.fa-times-circle').click
+          node.find('.fa-times').click
         end
 
         window.change_to(ImagesIndexPage)

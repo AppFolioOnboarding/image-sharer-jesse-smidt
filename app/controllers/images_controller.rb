@@ -8,6 +8,20 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
   end
 
+  def edit
+    @image = Image.find(params[:id])
+  end
+
+  def update
+    @image = Image.find(params[:id])
+
+    if @image.update(image_params)
+      redirect_to images_path
+    else
+      render :edit
+    end
+  end
+
   def new
     @image = Image.new
   end
@@ -17,7 +31,7 @@ class ImagesController < ApplicationController
 
     if @image.valid?
       @image.save
-      redirect_to image_path(@image)
+      redirect_to @image
     else
       render :new
     end
@@ -26,7 +40,7 @@ class ImagesController < ApplicationController
   def destroy
     Image.delete(params[:id])
 
-    redirect_to root_path
+    redirect_to images_path
   end
 
   private
