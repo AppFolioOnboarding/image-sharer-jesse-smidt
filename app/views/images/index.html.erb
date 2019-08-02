@@ -14,15 +14,21 @@
     <%= flash[:notice] %>
   </div>
 <% end %>
-<div class="d-flex flex-wrap justify-content-around pt-2">
+<div id="images_container" class="d-flex flex-wrap justify-content-around pt-2">
   <% @images.each do |image| %>
     <div class="align-self-center m-4 shadow card">
       <div class="card-img-overlay--shared-container">
         <img class="display-image" src="<%= image.url %>" alt="Image">
-        <%= link_to new_image_share_path(image),
-                    class: 'card-link text-light card-img-overlay card-img-overlay--shared d-flex align-items-center justify-content-center' do %>
-          <span>Share</span>
-        <% end %>
+        <div class="card-img-overlay card-img-overlay--shared d-flex">
+          <%= link_to new_image_share_path(image),
+                      class: 'card-link text-light flex-fill d-flex align-items-center justify-content-center' do %>
+            <span>Share</span>
+          <% end %>
+          <%= form_for image, method: 'delete' do %>
+            <button type="submit"
+                    class="fas fa-times-circle text-light card-delete-button"></button>
+          <% end %>
+        </div>
       </div>
       <% if image.tag_list.any? %>
         <div class="card-body">

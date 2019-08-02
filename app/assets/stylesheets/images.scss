@@ -44,12 +44,24 @@
 .card-img-overlay--shared {
   @extend .card-img-overlay;
   opacity:0;
-  text-align: center;
   background: $secondary;
   font-size: 36px;
 }
 
 .card:hover .card-img-overlay--shared {
   opacity: .5;
+}
 
+.card-delete-button{
+  position: absolute;
+  right:20px;
+  top: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.card-delete-button:focus{
+  outline: none;
 }

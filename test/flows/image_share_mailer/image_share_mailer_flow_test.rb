@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UsersTest < ActionDispatch::SystemTestCase
+class ImageShareMailerFlowTest < ActionDispatch::SystemTestCase
   driven_by :selenium, using: :headless_chrome
   include ActionMailer::TestHelper
 

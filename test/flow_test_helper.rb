@@ -3,6 +3,7 @@ require 'test_helper'
 require 'active_support/test_case'
 require 'capybara/rails'
 require 'capybara/dsl'
+require 'ae_page_objects/rails'
 
 class FlowTestCase < ActiveSupport::TestCase
   include Capybara::DSL
