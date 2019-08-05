@@ -1,42 +1,41 @@
 require 'test_helper'
 require 'flow_test_helper'
 require 'page_objects/images_index_page'
+require 'page_objects/image_edit_page'
+require 'page_objects/image_new_page'
 
 class ImagesFlowTest < ActionDispatch::SystemTestCase
   driven_by :selenium, using: :headless_chrome
   test 'create image' do
-    visit new_image_url
-    fill_in 'Url', with: 'https://appfolio.com'
-    fill_in 'Image Tags', with: 'one, two'
+    image_new_page = PageObjects::ImageNewPage.visit
     assert_difference('Image.count', 1) do
-      click_on 'Create'
+      image_new_page.create_image('https://appfolio.com', 'one, two')
     end
   end
 
   test 'create image invalid url' do
-    visit new_image_url
-    fill_in 'Url', with: 'bad'
+    image_new_page = PageObjects::ImageNewPage.visit
     assert_difference('Image.count', 0) do
-      click_on 'Create'
+      image_new_page.create_image_invalid('bad')
     end
   end
 
   test 'update image' do
     image = Image.first
     new_tags = image.tag_list + ['new']
-    visit edit_image_url(image)
-    fill_in 'Image Tags', with: new_tags.join(', ')
-    click_on 'Save'
+    image_edit_page = PageObjects::ImageEditPage.visit(image)
+    images_index_page = image_edit_page.update_tags!(new_tags)
     assert_equal new_tags, Image.find(image.id).tag_list
+    assert_equal PageObjects::ImagesIndexPage, images_index_page.class
   end
 
   test 'filter images' do
-    visit images_url
-    first_badge = find('a.badge.badge-pill:first-of-type').text
-    visit images_url(tag: first_badge)
-    assert_selector 'a.badge.badge-pill', text: first_badge
-    visit images_url(tag: 'a tag that does not exist')
-    refute_selector '.card'
+    images_index_page = PageObjects::ImagesIndexPage.visit
+    first_badge_text = images_index_page.images.first.badges.first.text
+    second_images_index_page = PageObjects::ImagesIndexPage.visit(tag: first_badge_text)
+    assert_equal second_images_index_page.images.first.badges.first.text, first_badge_text
+    third_images_index_page = PageObjects::ImagesIndexPage.visit(tag: 'a tag that does not exist')
+    assert_equal 0, third_images_index_page.images.size
   end
 
   test 'delete image' do
