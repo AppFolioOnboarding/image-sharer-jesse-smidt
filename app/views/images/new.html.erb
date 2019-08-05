@@ -6,11 +6,7 @@
       <%= f.label :url, 'Image Url' %>
       <%= f.text_field :url, class: 'form-control col-md-4', placeholder:'https://appfolio.com' %>
   </div>
-  <div class="form-group">
-    <%= f.label :tag_list, 'Image Tags' %>
-    <%= f.text_field :tag_list, value: @image.tag_list.join(","), class: 'form-control col-md-4', placeholder: 'Fun, Scenic' %>
-    <small>Enter tags separated by commas (",")</small>
-  </div>
+  <%= render partial: 'tag_edit', locals: { form: f, tag_list: @image.tag_list } %>
   <%= render partial: '_partials/validation_list', locals: { errors: @image.errors } %>
   <%= f.submit 'Create', {class: 'btn btn-primary'} %>
 <% end %>

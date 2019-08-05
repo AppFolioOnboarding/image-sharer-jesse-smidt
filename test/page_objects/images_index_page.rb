@@ -4,6 +4,7 @@ module PageObjects
     path :root
 
     collection :images, locator: '#images_container', item_locator: '.card' do
+      collection :badges, locator: '.card-body', item_locator: 'a.badge.badge-pill'
       def image_src
         node.find('.display-image')[:src]
       end
@@ -11,7 +12,7 @@ module PageObjects
       def delete!
         node.hover
         Capybara.current_session.accept_confirm do
-          node.find('.fa-times-circle').click
+          node.find('.fa-times').click
         end
 
         window.change_to(ImagesIndexPage)

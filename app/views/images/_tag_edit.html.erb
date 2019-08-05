@@ -1,0 +1,5 @@
+<div class="form-group">
+  <%= form.label :tag_list, 'Image Tags' %>
+  <%= form.text_field :tag_list, value: tag_list.join(", "), class: 'form-control col-md-4', placeholder: 'Fun, Scenic' %>
+  <small>Enter tags separated by commas (",")</small>
+</div>
